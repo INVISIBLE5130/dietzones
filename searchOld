@@ -1,0 +1,49 @@
+<?php
+if (!$_POST['search'])
+    $_POST['search'] = 'Health';
+
+$item->name="Search Results";
+include ('header.php');
+$articles = json_decode(file_get_contents('cache/articleslist.json'));
+
+$found = array();
+foreach ($articles as $item)
+{
+ if ( stripos($item->name, $_POST['search'])!==FALSE )
+    $found[]=$item;
+}
+
+foreach ($articles as $item)
+{
+ if (stripos($item->article, $_POST['search'])!==FALSE)
+    if (!in_array($item, $found))
+        $found[]=$item;
+}
+
+$keys = explode(" ", $_POST['search']);
+foreach ($articles as $item)
+{
+    
+    for ($i=0;$i<count($keys);$i++)
+    {
+        if (strlen($keys[$i])<=2)
+            continue;
+        
+        if (stripos($item->name, $keys[$i])!==FALSE || stripos($item->article, $keys[$i])!==FALSE)   
+            if (!in_array($item, $found))
+                $found[]=$item;
+    }
+}
+
+$finarticles = $found;
+
+?>
+
+
+ТУТ ВЕРСТКА
+
+
+<?php
+include ('footer.php');
+?>
+

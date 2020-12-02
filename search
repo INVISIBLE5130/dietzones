@@ -1,0 +1,158 @@
+<?php
+if (!$_POST['search'])
+    $_POST['search'] = 'Health';
+
+$item->name="Search Results";
+include ('header.php');
+$articles = json_decode(file_get_contents('cache/articleslist.json'));
+
+$found = array();
+foreach ($articles as $item)
+{
+ if ( stripos($item->name, $_POST['search'])!==FALSE )
+    $found[]=$item;
+}
+
+foreach ($articles as $item)
+{
+ if (stripos($item->article, $_POST['search'])!==FALSE)
+    if (!in_array($item, $found))
+        $found[]=$item;
+}
+
+$keys = explode(" ", $_POST['search']);
+foreach ($articles as $item)
+{
+    
+    for ($i=0;$i<count($keys);$i++)
+    {
+        if (strlen($keys[$i])<=2)
+            continue;
+        
+        if (stripos($item->name, $keys[$i])!==FALSE || stripos($item->article, $keys[$i])!==FALSE)   
+            if (!in_array($item, $found))
+                $found[]=$item;
+    }
+}
+
+$finarticles = $found;
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results | DietZones</title>
+    <link rel="stylesheet" href="/css/build.css">
+</head>
+<body>
+<div class="main__search-results">
+    <div class="main__search-results-card">
+        <img class="main__search-results-card-img" src="/img/img.jpg" alt="Image">
+        <a class="main__search-results-card-title editors-card__title" href="#">
+            Why the beauty industry does its best to get rid of aging?
+        </a>
+        <p class="main__search-results-card-category editors-card__subtitle">
+            BEAUTY
+        </p>
+        <div class="main__search-results-card-info">
+            <p class="main__search-results-card-info-date card-footer__text">2020-11-25</p>
+            <div class="main__search-results-card-info-views">
+                <img class="main__search-results-card-info-views-icon" src="/img/icons/looks.svg" alt="Views">
+                <p class="main__search-results-card-info-views-amount card-footer__text">612</p>
+            </div>
+            <div class="main__search-results-card-info-comments">
+                <img class="main__search-results-card-info-comments-icon" src="/img/icons/comments-sm.svg" alt="Comments">
+                <p class="main__search-results-card-info-comments-amount card-footer__text">0</p>
+            </div>
+        </div>
+    </div>
+    <div class="main__search-results-card">
+        <img class="main__search-results-card-img" src="/img/img.jpg" alt="Image">
+        <a class="main__search-results-card-title editors-card__title" href="#">
+            Why the beauty industry does its best to get rid of aging?
+        </a>
+        <p class="main__search-results-card-category editors-card__subtitle">
+            BEAUTY
+        </p>
+        <div class="main__search-results-card-info">
+            <p class="main__search-results-card-info-date card-footer__text">2020-11-25</p>
+            <div class="main__search-results-card-info-views">
+                <img class="main__search-results-card-info-views-icon" src="/img/icons/looks.svg" alt="Views">
+                <p class="main__search-results-card-info-views-amount card-footer__text">612</p>
+            </div>
+            <div class="main__search-results-card-info-comments">
+                <img class="main__search-results-card-info-comments-icon" src="/img/icons/comments-sm.svg" alt="Comments">
+                <p class="main__search-results-card-info-comments-amount card-footer__text">0</p>
+            </div>
+        </div>
+    </div>
+    <div class="main__search-results-card">
+        <img class="main__search-results-card-img" src="/img/img.jpg" alt="Image">
+        <a class="main__search-results-card-title editors-card__title" href="#">
+            Why the beauty industry does its best to get rid of aging?
+        </a>
+        <p class="main__search-results-card-category editors-card__subtitle">
+            BEAUTY
+        </p>
+        <div class="main__search-results-card-info">
+            <p class="main__search-results-card-info-date card-footer__text">2020-11-25</p>
+            <div class="main__search-results-card-info-views">
+                <img class="main__search-results-card-info-views-icon" src="/img/icons/looks.svg" alt="Views">
+                <p class="main__search-results-card-info-views-amount card-footer__text">612</p>
+            </div>
+            <div class="main__search-results-card-info-comments">
+                <img class="main__search-results-card-info-comments-icon" src="/img/icons/comments-sm.svg" alt="Comments">
+                <p class="main__search-results-card-info-comments-amount card-footer__text">0</p>
+            </div>
+        </div>
+    </div>
+    <div class="main__search-results-card">
+        <img class="main__search-results-card-img" src="/img/img.jpg" alt="Image">
+        <a class="main__search-results-card-title editors-card__title" href="#">
+            Why the beauty industry does its best to get rid of aging?
+        </a>
+        <p class="main__search-results-card-category editors-card__subtitle">
+            BEAUTY
+        </p>
+        <div class="main__search-results-card-info">
+            <p class="main__search-results-card-info-date card-footer__text">2020-11-25</p>
+            <div class="main__search-results-card-info-views">
+                <img class="main__search-results-card-info-views-icon" src="/img/icons/looks.svg" alt="Views">
+                <p class="main__search-results-card-info-views-amount card-footer__text">612</p>
+            </div>
+            <div class="main__search-results-card-info-comments">
+                <img class="main__search-results-card-info-comments-icon" src="/img/icons/comments-sm.svg" alt="Comments">
+                <p class="main__search-results-card-info-comments-amount card-footer__text">0</p>
+            </div>
+        </div>
+    </div>
+    <div class="main__search-results-card">
+        <img class="main__search-results-card-img" src="/img/img.jpg" alt="Image">
+        <a class="main__search-results-card-title editors-card__title" href="#">
+            Why the beauty industry does its best to get rid of aging?
+        </a>
+        <p class="main__search-results-card-category editors-card__subtitle">
+            BEAUTY
+        </p>
+        <div class="main__search-results-card-info">
+            <p class="main__search-results-card-info-date card-footer__text">2020-11-25</p>
+            <div class="main__search-results-card-info-views">
+                <img class="main__search-results-card-info-views-icon" src="/img/icons/looks.svg" alt="Views">
+                <p class="main__search-results-card-info-views-amount card-footer__text">612</p>
+            </div>
+            <div class="main__search-results-card-info-comments">
+                <img class="main__search-results-card-info-comments-icon" src="/img/icons/comments-sm.svg" alt="Comments">
+                <p class="main__search-results-card-info-comments-amount card-footer__text">0</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<?php
+include ('footer.php');
+?>
+
