@@ -1651,12 +1651,19 @@ input[type='number']::-webkit-inner-spin-button {
 
 .menu-mobile__search-input,
 .main__search-input {
-    width: 50%;
+    width: 90%;
     margin: 0 2%;
     border: none;
     outline: none;
     font-size: 16px;
     background: #F9F9F9;
+}
+
+@media (max-width: 1023px) {
+    .menu-mobile__search-input,
+    .main__search-input {
+        width: 80%;
+    }
 }
 
 .menu-mobile__search-close,
@@ -3456,6 +3463,16 @@ input[type="search"]::-webkit-search-results-decoration {
 @media (max-width: 767px) {
     .form-search {
         width: calc(100vw - 60px);
+    }
+}
+
+.formWidth {
+    width: 50%;
+}
+
+@media (max-width: 1023px) {
+    .formWidth {
+        width: 80%;
     }
 }
 

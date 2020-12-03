@@ -161,10 +161,12 @@ for ($i=0;$i<count($lines);$i++)
         <div class="main__header"><img class="navbar__burger" id="menu-open" src="/img/icons/burger.svg" alt="Open menu"><a class="main__logo-wrap" href="/"><img class="main__logo" src="/img/big-logo.svg" alt="DietZones.com logo"></a>
             <div class="main__header-btn-wrap"> <img class="navbar__search desktop__search" src="/img/icons/search.svg" alt="search"> <a class="main-btn main-btn_accent-outline navbar__btn-signup" href="/">Sign up</a><a class="main-btn main-btn_black navbar__btn-signin" href="/">Sign in</a> </div>
         </div>
-        <div class="main__search-out">
-            <img class="main__search-search" src="/img/icons/search.svg" alt="Search">
+        <div class="main__search-out" id="search">
+            <form class="formWidth" action="/search" method="POST">
+            <img class="main__search-search" src="/img/icons/search.svg" alt="Search" onclick="document.getElementById('search').submit()">
             <input type="search" class="main__search-input"/>
             <img class="main__search-close" src="/img/icons/close.svg" alt="Close">
+            </form>
         </div>
         <div class="main__menu">
             <ul class="menu">
