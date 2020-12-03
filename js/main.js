@@ -137,16 +137,13 @@ function initMobileNav() {
 
 document.querySelectorAll('.navbar__search').forEach(item => {
 	item.addEventListener('click', () => {
+		document.querySelector('.main__search-out').classList.toggle('main__search-in')
+		document.querySelector('.main__search-input').focus()
 		window.scrollTo(0,0)
 	})
 })
 
 document.querySelector('.main__search-input').focus()
-
-document.querySelectorAll('.desktop__search').forEach(item => item.addEventListener('click', () => {
-	document.querySelector('.main__search-out').classList.toggle('main__search-in')
-	document.querySelector('.main__search-input').focus()
-}))
 
 document.querySelector('.main__search-close').addEventListener('click', () => {
 	document.querySelector('.main__search-out').classList.remove('main__search-in')
