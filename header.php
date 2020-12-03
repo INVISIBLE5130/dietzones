@@ -162,9 +162,9 @@ for ($i=0;$i<count($lines);$i++)
             <div class="main__header-btn-wrap"> <img class="navbar__search desktop__search" src="/img/icons/search.svg" alt="search"> <a class="main-btn main-btn_accent-outline navbar__btn-signup" href="/">Sign up</a><a class="main-btn main-btn_black navbar__btn-signin" href="/">Sign in</a> </div>
         </div>
         <div class="main__search-out" id="search">
-            <form class="formWidth" action="/search" method="POST">
-            <img class="main__search-search" src="/img/icons/search.svg" alt="Search" onclick="document.getElementById('search').submit()">
-            <input type="search" class="main__search-input"/>
+            <form class="formWidth" action="/search" method="POST" id="searchForm">
+            <img class="main__search-search" src="/img/icons/search.svg" alt="Search" onclick="(document.getElementById('searchForm').submit())">
+            <input type="search" class="main__search-input"/ name="search" autofocus>
             <img class="main__search-close" src="/img/icons/close.svg" alt="Close">
             </form>
         </div>
